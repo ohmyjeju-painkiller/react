@@ -10,7 +10,8 @@
     "apsl-react-native-button": "^3.0.1",
     "react": "15.3.2",
     "react-native": "0.35.0",
-    "react-native-slide": "^0.2.2"
+    "react-native-slide": "^0.2.2",
+    "react-native-swiper": "^1.5.2"
   },
   "jest": {
     "preset": "jest-react-native"
@@ -20,6 +21,7 @@
     "babel-preset-react-native": "1.9.0",
     "jest": "16.0.2",
     "jest-react-native": "16.0.0",
-    "react-test-renderer": "15.3.2"
+    "react-test-renderer": "15.3.2",
+    "rnpm-plugin-windows": "^0.2.3"
   }
 }
