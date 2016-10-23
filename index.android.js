@@ -5,58 +5,66 @@
  */
 
 import React, { Component } from 'react';
-import Slide from 'react-native-slider';
+import Swiper from 'react-native-swiper';
 import Button from 'apsl-react-native-button'
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  StatusBar,
+  Dimension
 } from 'react-native';
 
-class LastSlide extends Component {
-  render() {
+const styles = {
+  wrapper: {
+
+  }
+
+  slide: {
+    flex: 1,
+    backgroundColor: 'transparent'
+  },
+
+  image: {
+    width,
+    height,
+    flex: 1
+  }
+}
+
+
+export default class extends Component {
+  render () {
     return (
-      <Image source={require('./images/four.png')}/>
-      <Button style={{backgroundColor: 'red', marginBottom: '2'}} textStyle={{fontSize: 18}}>
-        Hello!
-      </Button>
+      <View>
+        <StatusBar barStyle='light-content' />
+        <Image>
+          <Swiper style={styles.wrapper}
+            dot={<View style={{backgroundColor: 'rgba(255,255,255,.3)', width: 13, height: 13, borderRadius: 7, marginLeft: 7, marginRight: 7}} />}
+            activeDot={<View style={{backgroundColor: '#fff', width: 13, height: 13, borderRadius: 7, marginLeft: 7, marginRight: 7}} />}
+            paginationStyle={{
+              bottom: 70
+            }}
+            loop={false}>
+            <View style={styles.slide}>
+              <Image style={styles.image} source={require('./images/one.jpg')} />
+            </View>
+            <View style={styles.slide}>
+              <Image style={styles.image} source={require('./images/two.jpg')} />
+            </View>
+            <View style={styles.slide}>
+              <Image style={styles.image} source={require('./images/four.png')}/>
+              <Button style={{backgroundColor: 'red', marginBottom: '2'}} textStyle={{fontSize: 18}}>
+                Hello!
+              </Button>
+            </View>
+          </Swiper>
+        </Image>
+      </View>
     )
   }
 }
-
-
-export default class RecomJeju extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Slide
-          showPagination={false}>
-          {
-            <Image source={require('./images/one.png')}/>,
-            <Image source={require('./images/two.png')}/>,
-            <Image source={require('./images/three.png')}/>,
-            <LastSlide />
-        }
-        </Slide>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: '#525252',
-  },
-  start_button: {
-    fontSize: '10',
-    textAlign: 'center',
-    color: 'white',
-    marginBottom: '1',
-  }
-});
 
 AppRegistry.registerComponent('RecomJeju', () => RecomJeju);
